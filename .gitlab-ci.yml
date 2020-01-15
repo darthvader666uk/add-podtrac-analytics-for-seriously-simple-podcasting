@@ -16,7 +16,7 @@ stages:
 - artifacts
 # PHP Compatibility Syntax and Coding Standards Check
 Compatibility Syntax and Coding Standards Check:
-  stage: Compatibility_Syntax_aCoding_Standards_Checknd_Coding_Standards_Check
+  stage: Coding_Standards_Check
   script:
   - /root/.composer/vendor/bin/phpcs -p -s --standard=WordPress-Extra src/ --report-full --report-summary --extensions=php
 #Get Temporary Clone VPS tools
