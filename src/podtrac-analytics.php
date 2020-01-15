@@ -66,6 +66,8 @@ function podtrac_analytics_download_url_filter(string $link, int $episode_id, st
 
 		// Re-created the URl with additional tracking
 		$redirect_link = esc_url('https://dts.podtrac.com/redirect.mp3/'.$parsed_url['host'].$parsed_url['path']);
+	} else {
+		$redirect_link = esc_url_raw($link);
 	}
 
 	// Return Redirect
