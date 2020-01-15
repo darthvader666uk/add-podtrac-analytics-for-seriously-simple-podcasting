@@ -5,6 +5,7 @@ var clean           = require('gulp-clean');
 var runSequence     = require('run-sequence');
 var zip             = require('gulp-zip');
 var colorize        = require('chalk');
+var sort 			= require('gulp-sort');
 var abort_on_error  = true;
 
 // set clean paths
@@ -25,6 +26,20 @@ gulp.task('clean', function(){
 	return gulp.src(cleanPaths)
 	.pipe(plumber(reportError))
 	.pipe(clean({force:true}));
+});
+/* ==Translations=== */
+gulp.task('pot', function () {
+	return gulp.src('src/**/*.php')
+	.pipe(plumber(reportError))
+	.pipe(sort())
+	.pipe(wpPot({
+		domain: 'podtrac-analytics-for-seriously-simple-podcasting',
+		destFile:'podtrac-analytics-for-seriously-simple-podcasting.pot',
+		package: 'podtrac-analytics-for-seriously-simple-podcasting',
+		bugReport: 'http://example.com',
+		lastTranslator: 'Stuart Nightingale <darthvader666uk@gmail.com>'
+	}))
+	.pipe(gulp.dest('dist/languages'));
 });
 
 /* ==Moving Src to Dist=== */
@@ -59,7 +74,8 @@ gulp.task('clean_zip', function() {
 /*== Building the files ==*/
 gulp.task('default', function(done){
     runSequence('clean',
-                ['move_src'],
+				['move_src'],
+				['pot'],
                 done
         );
 });
@@ -71,8 +87,7 @@ gulp.task('build', function(done){
 });
 
 gulp.task('zip', function(done){
-    runSequence('clean',
-                ['move_src'],
+    runSequence('default',
                 ['copy_for_zip'],
                 ['build_zip'],
                 ['clean_zip'],
