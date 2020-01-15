@@ -1,23 +1,27 @@
-<?php
+<?php // phpcs:ignore Squiz.Commenting.FileComment.Missing
+// phpcs:disable Squiz.Commenting.BlockComment.LineIndent, Squiz.Commenting.BlockComment.FirstLineIndent, Squiz.Commenting.FileComment.WrongStyle, PEAR.Commenting.FileComment.WrongStyle, Squiz.Commenting.FileComment.Missing, Squiz.Commenting.BlockComment.NoEmptyLineBefore, Squiz.Commenting.BlockComment.NoEmptyLineAfter
 /*
 Plugin Name: Podtrac Analytics for Seriously Simple Podcasting
+Description: This is to add Podtrac analytics to Seriously Simple Podcasting Wordpress Plugin.
+Author: snightingale
 Version: 0.1.0
-Description: This is to add Podtrac analytics to Seriously Simple Podcasting Wordpress Plugin
-Author: Stuart Nightingale
-Author URI: https://profiles.wordpress.org/snightingale/
+Donate link: https://www.paypal.com/paypalme/my/profile
+License: GPLv2 or later
 Text Domain: podtrac-analytics-for-seriously-simple-podcasting
 Domain Path: /languages
+Author URI: https://profiles.wordpress.org/snightingale/
 */
+// phpcs:enable Squiz.Commenting.BlockComment.LineIndent, Squiz.Commenting.BlockComment.FirstLineIndent, Squiz.Commenting.FileComment.WrongStyle, PEAR.Commenting.FileComment.WrongStyle
 
 add_filter('ssp_settings_fields', 'podtrac_analytics_add_new_settings');
 
 /**
  * Adding new settings to the Podtrac Analytics tab for Seriously Simple Podcasting
  *
- * @param array $settings These are the setting passed from the Seriously Simple Podcasting Plugin
+ * @param  array $settings These are the setting passed from the Seriously Simple Podcasting Plugin
  * @return array
  */
-function podtrac_analytics_add_new_settings($settings) {
+function podtrac_analytics_add_new_settings(array $settings) {
 	$settings['podtrac_analytics'] = array(
 		'title'       => __('Podtrac Analytics', 'podtrac-analytics-for-seriously-simple-podcasting'),
 		'description' => __('This is to add Podtrac analytics to Seriously Simple Podcasting Wordpress Plugin.', 'podtrac-analytics-for-seriously-simple-podcasting').__(' Podtrac\'s Measurement Service is free to most publishers. It provides third-party measurement data not available anywhere else. When using this, all enclosure URLs will be prefixed, and do not need to be updated by the user. If you dont have Podtrac Account yet, go to ', 'podtrac-analytics-for-seriously-simple-podcasting').'<a href="https://publisher.podtrac.com">Podtrac</a>'.__(' to sign up.', 'podtrac-analytics-for-seriously-simple-podcasting'),
@@ -46,22 +50,22 @@ add_filter('ssp_episode_download_link', 'podtrac_analytics_download_url_filter',
 /**
  * If the option is ticked to allow tracking, this will amend the Podcast media URL
  *
- * @param string $link		 The URL of the Podcast Before adding tracking
- * @param int    $episode_id The Podcasr Episode ID
- * @param string $file       The File of the podcast media
+ * @param  string  $link       The URL of the Podcast Before adding tracking
+ * @param  integer $episode_id The Podcasr Episode ID
+ * @param  string  $file       The File of the podcast media
  * @return string
  */
-function podtrac_analytics_download_url_filter($link, $episode_id, $file) {
+function podtrac_analytics_download_url_filter(string $link, int $episode_id, string $file) {
 	// Get the select option for Enable Podtrac Episode Measurement Service
 	$podtrac_analytics_redirect = get_option('ss_podcasting_podtrac_analytics_episode_measurement_service', 'off');
 
 	// Check if Tick box is true
-	if ($podtrac_analytics_redirect === 'on') {
+	if ('on' === $podtrac_analytics_redirect) {
 		// Get the section from original URL
 		$parsed_url = parse_url($link);
 
 		// Re-created the URl with additional tracking
-		$redirect_link = esc_url('https://dts.podtrac.com/redirect.mp3/' . $parsed_url['host'] . $parsed_url['path']);
+		$redirect_link = esc_url('https://dts.podtrac.com/redirect.mp3/'.$parsed_url['host'].$parsed_url['path']);
 	}
 
 	// Return Redirect
@@ -74,16 +78,16 @@ add_filter('wp_feed_cache_transient_lifetime', 'podtrac_analytics_refresh_rss_ca
 /**
  * Refresh the RSS feed if the option is ticked.  Needed to add the tracking straight away
  *
- * @param int    $lifetime Cache duration in seconds. Default is 43200 seconds (12 hours).
- * @param string $filename Unique identifier for the cache object.
+ * @param  integer $lifetime Cache duration in seconds. Default is 43200 seconds (12 hours).
+ * @param  string  $filename Unique identifier for the cache object.
  * @return void
  */
-function podtrac_analytics_refresh_rss_cache($lifetime, $filename) {
+function podtrac_analytics_refresh_rss_cache(int $lifetime, string $filename) {
 	// Get option for Refresh RSS Cache
 	$rss_cache_refresh = get_option('ss_podcasting_podtrac_analytics_refresh_rss_cache', 'off');
 
 	// Check if tick box is true
-	if ($rss_cache_refresh === 'on') {
+	if ('on' === $rss_cache_refresh) {
 		create_function('', 'return 60;');
 	} else {
 		// Default back to 2 hours

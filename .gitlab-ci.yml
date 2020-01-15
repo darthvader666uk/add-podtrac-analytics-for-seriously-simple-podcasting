@@ -18,7 +18,7 @@ stages:
 Compatibility Syntax and Coding Standards Check:
   stage: Coding_Standards_Check
   script:
-  - /root/.composer/vendor/bin/phpcs -p -s --standard=WordPress-Extra src/ --report-full --report-summary --extensions=php
+  - /root/.composer/vendor/bin/phpcs -p -s --standard=CI/ruleset.xml src/ --report-full --report-summary --extensions=php
 #Get Temporary Clone VPS tools
 podtrac-analytics-for-seriously-simples-podcasting:
   stage: artifacts
