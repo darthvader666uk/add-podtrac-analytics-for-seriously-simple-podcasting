@@ -60,15 +60,22 @@ gulp.task('clean_zip', function() {
 gulp.task('default', function(done){
     runSequence('clean',
                 ['move_src'],
-                ['copy_for_zip'],
-                ['build_zip'],
-                ['clean_zip'],
                 done
         );
 });
 
 gulp.task('build', function(done){
     runSequence('default',
+                done
+        );
+});
+
+gulp.task('zip', function(done){
+    runSequence('clean',
+                ['move_src'],
+                ['copy_for_zip'],
+                ['build_zip'],
+                ['clean_zip'],
                 done
         );
 });

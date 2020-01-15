@@ -1,0 +1,45 @@
+# This file is setup for running jobs after commiting
+# If your commit message contains [ci skip] or [skip ci], using any capitalization, 
+# the commit will be created but the jobs will be skipped. 
+image: snightingale37/gitlab-ci-php-alpine-node-npm-composer-gulp-phpcs:1.0.6
+cache:
+  key: podtrac-analytics-for-seriously-simples-podcasting-cache
+  untracked: true
+  paths:
+  - vendor/
+  - node_modules/
+#specify the stages ran in gitlab
+stages:
+- clear_cache
+- ci_setup
+- Coding_Standards_Check
+- artifacts
+# PHP Compatibility Syntax and Coding Standards Check
+Compatibility Syntax and Coding Standards Check:
+  stage: Compatibility_Syntax_aCoding_Standards_Checknd_Coding_Standards_Check
+  script:
+  - /root/.composer/vendor/bin/phpcs -p -s --standard=WordPress-Extra src/ --report-full --report-summary --extensions=php
+#Get Temporary Clone VPS tools
+podtrac-analytics-for-seriously-simples-podcasting:
+  stage: artifacts
+  script:
+    - npm install
+    - composer install --no-dev
+    - /usr/bin/gulp build
+    - rm -rf podtrac-analytics-for-seriously-simples-podcasting
+    - mv dist podtrac-analytics-for-seriously-simples-podcasting
+    - chmod -R o-w podtrac-analytics-for-seriously-simples-podcasting
+  artifacts:
+    name: "podtrac-analytics-for-seriously-simples-podcasting"
+    expire_in: 4 weeks
+    paths:
+    - "podtrac-analytics-for-seriously-simples-podcasting"
+# Manual - This is for clearing the cache when it goes a little funny
+clear_cache:
+  stage: clear_cache
+  script:
+  - rm -rf vendor
+  - composer clearcache
+  - composer install
+  - composer update
+  when: manual
