@@ -1,9 +1,11 @@
 === Podtrac Analytics for Seriously Simple Podcasting ===
 Contributors: snightingale
 Tags: podcast, podtrac, Seriously Simple Podcasting
-Requires at least: 3.0.1
-Tested up to: 5.3
-Stable tag: 4.3
+Requires at least: 4.4
+Tested up to: 5.3.2
+Stable tag: 0.1.0
+Author URI: https://profiles.wordpress.org/snightingale/
+Donate link: https://www.paypal.me/darthvader666uk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,9 +27,7 @@ Once Installed, this can then be actived on the plugins page.
 
 To use this plugin (once activated) Navigate to the `Seriously Simple Podcasting` Settings option and choose the `Podtrac Analytics` Tab on top to active.
 
-== Screenshots ==
-
-1. Podtrac admin interface, integrated with Seriously Simple Podcasting.
+Then you will need to tick `Enable Podtrac Episode Measurement Service` and recommend ticking `Refresh RSS Cache` so the results are seen straight away.
 
 == Changelog ==
 
