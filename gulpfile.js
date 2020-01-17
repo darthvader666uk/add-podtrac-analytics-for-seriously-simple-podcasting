@@ -11,7 +11,7 @@ var abort_on_error  = true;
 // set clean paths
 var cleanPaths = [
 	'dist/*',
-	'podtrac-analytics-for-seriously-simple-podcasting.zip'
+	'add-podtrac-analytics-for-seriously-simple-podcasting.zip'
 ];
 
 /* ==Start Gulp Process=== */
@@ -33,12 +33,8 @@ gulp.task('pot', function () {
 	.pipe(plumber(reportError))
 	.pipe(sort())
 	.pipe(wpPot({
-		domain: 'podtrac-analytics-for-seriously-simple-podcasting',
-		destFile:'podtrac-analytics-for-seriously-simple-podcasting.pot',
-		package: 'podtrac-analytics-for-seriously-simple-podcasting',
-		bugReport: 'http://example.com',
-		lastTranslator: 'Stuart Nightingale <darthvader666uk@gmail.com>'
-	}))
+		domain: 'add-podtrac-analytics-for-seriously-simple-podcasting',
+		destFile:'add-podtrac-analytics-for-seriously-simple-podcasting.pot'}))
 	.pipe(gulp.dest('dist/languages'));
 });
 
@@ -55,19 +51,19 @@ gulp.task('move_src', function(){
 gulp.task('copy_for_zip', function(){
 	return gulp.src('dist/**')
 	.pipe(plumber(reportError))
-	.pipe(gulp.dest('podtrac-analytics-for-seriously-simple-podcasting'));
+	.pipe(gulp.dest('add-podtrac-analytics-for-seriously-simple-podcasting'));
 	
 });
 
 gulp.task('build_zip', function(){
-	return gulp.src('podtrac-analytics-for-seriously-simple-podcasting/**/*', { base : "." })
+	return gulp.src('add-podtrac-analytics-for-seriously-simple-podcasting/**/*', { base : "." })
 	.pipe(plumber(reportError))
-	.pipe(zip('podtrac-analytics-for-seriously-simple-podcasting.zip'))
+	.pipe(zip('add-podtrac-analytics-for-seriously-simple-podcasting.zip'))
 	.pipe(gulp.dest('.'));
 });
 
 gulp.task('clean_zip', function() {
-	return gulp.src('podtrac-analytics-for-seriously-simple-podcasting', {read: false}).pipe(clean())
+	return gulp.src('add-podtrac-analytics-for-seriously-simple-podcasting', {read: false}).pipe(clean())
 	.pipe(plumber(reportError));
 });
 
@@ -111,7 +107,7 @@ gulp.task('watch', function(){
 
 // get the relative path of a file in the src folder
 var get_relative_file_path = function (path) {
-	var path_parts = path.split('podtrac-analytics-for-seriously-simples-podcasting/src');
+	var path_parts = path.split('add-podtrac-analytics-for-seriously-simple-podcasting/src');
 	return path_parts[1] || path;
 }
 

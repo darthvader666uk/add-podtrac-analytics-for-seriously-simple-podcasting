@@ -1,5 +1,5 @@
 {
-    "name"       : "podtrac-analytics-for-seriously-simple-podcasting",
+    "name"       : "snightingale/add-podtrac-analytics-for-seriously-simple-podcasting",
 	"description": "This is to add Podtrac analytics to Seriously Simple Podcasting Wordpress Plugin",
     "require-dev": {
 		"squizlabs/php_codesniffer": "3.5.*",
