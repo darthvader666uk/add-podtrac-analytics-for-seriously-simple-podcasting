@@ -4,7 +4,7 @@ Tags: podcast, podtrac, Seriously Simple Podcasting
 Requires at least: 4.4
 Tested up to: 5.3.2
 Stable tag: 0.1.0
-Author URI: https://profiles.wordpress.org/snightingale/
+Author URI: https://gitlab.com/snightingale/add-podtrac-analytics-for-seriously-simple-podcasting
 Donate link: https://www.paypal.me/darthvader666uk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,7 @@ Inspired by [Podtrac & Seriously Simple Podcasting](https://wordpress.org/plugin
 This can be installed from the Wordpress Plugin directory, Maunal install from the Wordpress Plugin interface or via FTP.
 
 * Wordpress Plugin directory: Search for `Podtrac Analytics for Seriously Simple Podcasting`
-* Download the release from Wordpress Plugin directory or the [GitLab page](https://gitlab.com/snightingale/podtrac-analytics-for-seriously-simples-podcasting)
+* Download the release from Wordpress Plugin directory or the [GitLab page](https://gitlab.com/snightingale/add-podtrac-analytics-for-seriously-simple-podcasting)
 * Connect via FTP, extract the zip and upload the `podtrac-analytics-for-seriously-simples-podcasting` folder to `/wp-content/plugins/` directory.
 
 Once Installed, this can then be actived on the plugins page.
