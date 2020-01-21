@@ -1,6 +1,6 @@
 === Add Podtrac Analytics for Seriously Simple Podcasting ===
 Contributors: snightingale
-Tags: podcast, podtrac, Seriously Simple Podcasting
+Tags: podcast, podtrac, Seriously Simple Podcasting, podtrac
 Requires at least: 4.4
 Tested up to: 5.3.2
 Stable tag: 0.1.0
