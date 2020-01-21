@@ -4,6 +4,7 @@ Tags: podcast, podtrac, Seriously Simple Podcasting
 Requires at least: 4.4
 Tested up to: 5.3.2
 Stable tag: 0.1.0
+Requires PHP: 5.6
 Author URI: https://gitlab.com/snightingale/add-podtrac-analytics-for-seriously-simple-podcasting
 Donate link: https://www.paypal.me/darthvader666uk
 License: GPLv2 or later
