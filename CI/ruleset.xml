@@ -7,9 +7,13 @@
 	<ini name="date.timezone" value="GMT"/>
 	<!-- Set Tab Width -->
 	<arg name="tab-width" value="4"/>
+	<!-- Set MIN PHP Version for PHPCompatibility -->
+	<config name="testVersion" value="5.6-"/>
+	<!-- PHPCompatibility -->
+    <rule ref="PHPCompatibility"/>
 	<!-- PHP_CodeSniffer VariableAnalysis - detect unused variables and undefined -->
 	<rule ref="VariableAnalysis"/>
-<!-- Generic -->
+	<!-- Generic -->
 	<rule ref="Generic"> 
 		<!-- All PHP files MUST use the Unix LF (linefeed) line ending. -->
 		<rule ref="Generic.Files.LineEndings">
@@ -176,6 +180,7 @@
 		<exclude name="Squiz.Functions.GlobalFunction.Found"/><!-- Excluding:  Consider putting global function in a static class -->
 		<exclude name="Squiz.WhiteSpace.FunctionSpacing.After"/><!-- Excluding:  Expected 2 blank lines after function -->
 		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/><!-- Excluding: Parameter comment must end with a full stop -->
+		<exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/><!-- Excluding: Type hint missing -->
 	</rule>
 	<!-- Only Allow these Wordpress Rules -->
 	<!-- Yoda rule: When doing logical comparisons, always put the variable on the right side,

@@ -53,7 +53,7 @@ add_filter('ssp_settings_fields', 'podtrac_analytics_add_new_settings');
  * @param  string  $file       The File of the podcast media
  * @return string
  */
-function podtrac_analytics_download_url_filter(string $link, int $episode_id, string $file) {
+function podtrac_analytics_download_url_filter($link, $episode_id, $file) {
 	// Get the select option for Enable Podtrac Episode Measurement Service
 	$podtrac_analytics_redirect = get_option('ss_podcasting_podtrac_analytics_episode_measurement_service', 'off');
 
@@ -77,20 +77,18 @@ add_filter('ssp_episode_download_link', 'podtrac_analytics_download_url_filter',
 /**
  * Refresh the RSS feed if the option is ticked.  Needed to add the tracking straight away
  *
- * @param  integer $lifetime Cache duration in seconds. Default is 43200 seconds (12 hours).
- * @param  string  $filename Unique identifier for the cache object.
- * @return void
+ * @return integer
  */
-function podtrac_analytics_refresh_rss_cache(int $lifetime, string $filename) {
+function podtrac_analytics_refresh_rss_cache() {
 	// Get option for Refresh RSS Cache
 	$rss_cache_refresh = get_option('ss_podcasting_podtrac_analytics_refresh_rss_cache', 'off');
 
 	// Check if tick box is true
 	if ('on' === $rss_cache_refresh) {
-		create_function('', 'return 60;');
+		return 60;
 	} else {
 		// Default back to 2 hours
-		create_function('', 'return 43200;');
+		return 43200;
 	}
 }
 

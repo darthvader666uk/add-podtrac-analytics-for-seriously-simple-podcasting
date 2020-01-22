@@ -1,7 +1,7 @@
 # This file is setup for running jobs after commiting
 # If your commit message contains [ci skip] or [skip ci], using any capitalization, 
 # the commit will be created but the jobs will be skipped. 
-image: snightingale37/gitlab-ci-php-alpine-node-npm-composer-gulp-phpcs:1.0.6
+image: snightingale37/gitlab-ci-php-alpine-node-npm-composer-gulp-phpcs:latest
 cache:
   key: podtrac-analytics-for-seriously-simples-podcasting-cache
   untracked: true
