@@ -4,7 +4,7 @@
 Plugin Name: Add Podtrac Analytics for Seriously Simple Podcasting
 Description: This is to add Podtrac analytics to Seriously Simple Podcasting Wordpress Plugin.
 Author: snightingale
-Version: 0.1.0
+Version: 0.1.1
 Donate link: https://www.paypal.me/darthvader666uk
 License: GPLv2 or later
 Text Domain: add-podtrac-analytics-for-seriously-simple-podcasting
@@ -12,8 +12,6 @@ Domain Path: /languages
 Author URI: https://profiles.wordpress.org/snightingale/
 */
 // phpcs:enable Squiz.Commenting.BlockComment.LineIndent, Squiz.Commenting.BlockComment.FirstLineIndent, Squiz.Commenting.FileComment.WrongStyle, PEAR.Commenting.FileComment.WrongStyle
-
-add_filter('ssp_settings_fields', 'podtrac_analytics_add_new_settings');
 
 /**
  * Adding new settings to the Podtrac Analytics tab for Seriously Simple Podcasting
@@ -45,7 +43,7 @@ function podtrac_analytics_add_new_settings(array $settings) {
 	return $settings;
 }
 
-add_filter('ssp_episode_download_link', 'podtrac_analytics_download_url_filter', 10, 3);
+add_filter('ssp_settings_fields', 'podtrac_analytics_add_new_settings');
 
 /**
  * If the option is ticked to allow tracking, this will amend the Podcast media URL
@@ -74,8 +72,7 @@ function podtrac_analytics_download_url_filter(string $link, int $episode_id, st
 	return $redirect_link;
 }
 
-// Refresh feed if tracking updated
-add_filter('wp_feed_cache_transient_lifetime', 'podtrac_analytics_refresh_rss_cache', 10, 4);
+add_filter('ssp_episode_download_link', 'podtrac_analytics_download_url_filter', 10, 3);
 
 /**
  * Refresh the RSS feed if the option is ticked.  Needed to add the tracking straight away
@@ -96,3 +93,15 @@ function podtrac_analytics_refresh_rss_cache(int $lifetime, string $filename) {
 		create_function('', 'return 43200;');
 	}
 }
+
+add_filter('wp_feed_cache_transient_lifetime', 'podtrac_analytics_refresh_rss_cache', 10, 4);
+
+/**
+ * This function will load the languages from /languages/
+ *
+ * @return void
+ */
+function add_podtrac_analytics_for_seriously_simple_podcasting_load_plugin_textdomain() {
+    load_plugin_textdomain('add-podtrac-analytics-for-seriously-simple-podcasting', FALSE, basename( dirname( __FILE__ ) ) . '/languages/');
+}
+add_action('plugins_loaded', 'add_podtrac_analytics_for_seriously_simple_podcasting_load_plugin_textdomain');
