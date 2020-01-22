@@ -52,6 +52,7 @@
 		<exclude name="Generic.Arrays.DisallowLongArraySyntax.Found"/><!-- Excluding: Short array syntax must be used to define arrays -->
 		<exclude name="Generic.PHP.RequireStrictTypes.MissingDeclaration"/><!-- Excluding: Missing required strict_types declaration -->
 		<exclude name="Generic.PHP.ClosingPHPTag.NotFound"/><!-- Excluding: The PHP open tag does not have a corresponding PHP close tag -->
+		<exclude name="Generic.PHP.UpperCaseConstant.Found"/><!-- Excluding: TRUE, FALSE and NULL must be uppercase -->
 	</rule>
 	<!-- PSR1 -->
 	<rule ref="PSR1">

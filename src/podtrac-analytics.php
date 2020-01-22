@@ -102,6 +102,6 @@ add_filter('wp_feed_cache_transient_lifetime', 'podtrac_analytics_refresh_rss_ca
  * @return void
  */
 function add_podtrac_analytics_for_seriously_simple_podcasting_load_plugin_textdomain() {
-    load_plugin_textdomain('add-podtrac-analytics-for-seriously-simple-podcasting', FALSE, basename( dirname( __FILE__ ) ) . '/languages/');
+	load_plugin_textdomain('add-podtrac-analytics-for-seriously-simple-podcasting', false, basename(dirname(__FILE__)).'/languages/');
 }
 add_action('plugins_loaded', 'add_podtrac_analytics_for_seriously_simple_podcasting_load_plugin_textdomain');
