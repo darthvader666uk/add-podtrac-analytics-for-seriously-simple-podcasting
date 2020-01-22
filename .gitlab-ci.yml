@@ -23,9 +23,9 @@ Compatibility Syntax and Coding Standards Check:
 podtrac-analytics-for-seriously-simples-podcasting:
   stage: artifacts
   script:
-    - npm install
-    - composer install --no-dev
-    - /usr/bin/gulp build
+    - /usr/local/bin/npm install
+    - /usr/local/bin/composer install --no-dev
+    - /usr/local/bin/gulp build
     - rm -rf podtrac-analytics-for-seriously-simples-podcasting
     - mv dist podtrac-analytics-for-seriously-simples-podcasting
     - chmod -R o-w podtrac-analytics-for-seriously-simples-podcasting
@@ -38,8 +38,7 @@ podtrac-analytics-for-seriously-simples-podcasting:
 clear_cache:
   stage: clear_cache
   script:
-  - rm -rf vendor
-  - composer clearcache
-  - composer install
-  - composer update
+  - /usr/local/bin/composer clearcache
+  - /usr/local/bin/composer install
+  - /usr/local/bin/composer update
   when: manual
