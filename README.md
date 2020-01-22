@@ -3,7 +3,7 @@ Contributors: snightingale
 Tags: podcast, podtrac, Seriously Simple Podcasting, podtrac
 Requires at least: 4.4
 Tested up to: 5.3.2
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 Requires PHP: 5.6
 Author URI: https://gitlab.com/snightingale/add-podtrac-analytics-for-seriously-simple-podcasting
 Donate link: https://www.paypal.me/darthvader666uk
@@ -40,6 +40,9 @@ Then you will need to tick `Enable Podtrac Episode Measurement Service` and reco
 
 == Changelog ==
 
+= 0.1.2 =
+* create_function() is deprecated and updated to  Anonymous Function
+
 = 0.1.1 =
 * Added ability to add languages to the plugin
 
@@ -48,5 +51,5 @@ Then you will need to tick `Enable Podtrac Episode Measurement Service` and reco
 
 == Upgrade Notice ==
 
-= 0.1.1 =
-* Added ability to add languages to the plugin
+= 0.1.2 =
+* create_function() is deprecated and updated to  Anonymous Function
