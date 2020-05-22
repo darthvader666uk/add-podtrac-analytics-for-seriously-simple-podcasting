@@ -11,7 +11,7 @@ Offical Wordpress Plugin Page:
 This can be installed from the Wordpress Plugin directory, Maunal install from the Wordpress Plugin interface or via FTP.
 
 * Wordpress Plugin directory: Search for `Add Podtrac Analytics for Seriously Simple Podcasting`
-* Download the release from Wordpress Plugin directory or the [GitHub page](https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting)
+* Download the release from [Wordpress Plugin directory](https://wordpress.org/plugins/add-podtrac-analytics-for-seriously-simple-podcasting/) or the [GitHub page](https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting)
 * Connect via FTP, extract the zip and upload the `podtrac-analytics-for-seriously-simples-podcasting` folder to `/wp-content/plugins/` directory.
 
 Once Installed, this can then be actived on the plugins page.
