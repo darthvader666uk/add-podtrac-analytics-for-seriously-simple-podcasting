@@ -1,8 +1,8 @@
 {
   "name": "add-podtrac-to-seriously-simple-podcasting",
-  "author": "Jake Spurlock",
+  "author": "snightingale",
   "description": "Podtrac with Seriously Simple Podcasting",
-  "repository": "https://github.com/whyisjake/podtrac",
+  "repository": "https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting",
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-wp-pot": "^1.0.1"
