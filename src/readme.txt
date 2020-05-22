@@ -56,3 +56,11 @@ Then you will need to tick `Enable Podtrac Episode Measurement Service` and reco
 
 = 0.1.3 =
 * Tweaked RSS refresh and migrated to GitHub
+
+== Additional Info ==
+
+To Help with the plugin or raise any issues head over to the Github Page:
+
+* Offical GitHub Page: [Github](https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting)
+
+* Rasing Issues: [Raise Issues](https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting/issues)
