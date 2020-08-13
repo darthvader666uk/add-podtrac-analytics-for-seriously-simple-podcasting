@@ -2,7 +2,7 @@
 Contributors: snightingale
 Tags: podcast, podtrac, Seriously Simple Podcasting, podtrac
 Requires at least: 4.4
-Tested up to: 5.4
+Tested up to: 5.5
 Stable tag: 0.1.3
 Requires PHP: 5.6
 Author URI: https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting
@@ -39,6 +39,10 @@ Then you will need to tick `Enable Podtrac Episode Measurement Service` and reco
 1. This is the layout of the plugin
 
 == Changelog ==
+
+= 0.1.4 =
+* Added Blubrry Stats tracking and can combine with Podtrac.
+* Added Option to select HTTP or HTTPS for Podtrac.
 
 = 0.1.3 =
 * Tweaked RSS refresh and migrated to GitHub
