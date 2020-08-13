@@ -1,6 +1,6 @@
 # Description
 
-Inspired by [Podtrac & Seriously Simple Podcasting](https://wordpress.org/plugins/add-podtrac-to-seriously-simple-podcasting/), This Wordpress plugin allows you to add Podtrac analytics to your podcast media files when using the [Seriously Simple Podcasting](http://seriouslysimplepodcasting.com) Wordpress plugin.
+Inspired by [Podtrac & Seriously Simple Podcasting](https://wordpress.org/plugins/add-podtrac-to-seriously-simple-podcasting/), This Wordpress plugin allows you to add Podtrac & Blubrry analytics to your podcast media files when using the [Seriously Simple Podcasting](http://seriouslysimplepodcasting.com) Wordpress plugin.
 
 Offical Wordpress Plugin Page:
 

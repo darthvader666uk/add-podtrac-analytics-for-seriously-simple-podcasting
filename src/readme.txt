@@ -3,7 +3,7 @@ Contributors: snightingale
 Tags: podcast, podtrac, Seriously Simple Podcasting, podtrac
 Requires at least: 4.4
 Tested up to: 5.5
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 Requires PHP: 5.6
 Author URI: https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting
 Donate link: https://www.buymeacoffee.com/disruptthinking
@@ -12,7 +12,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Inspired by [Podtrac & Seriously Simple Podcasting](https://wordpress.org/plugins/add-podtrac-to-seriously-simple-podcasting/), This Wordpress plugin allows you to add Podtrac analytics to your podcast media files when using the [Seriously Simple Podcasting](http://seriouslysimplepodcasting.com) Wordpress plugin.
+Inspired by [Podtrac & Seriously Simple Podcasting](https://wordpress.org/plugins/add-podtrac-to-seriously-simple-podcasting/), This Wordpress plugin allows you to add Podtrac &Blubrry analytics to your podcast media files when using the [Seriously Simple Podcasting](http://seriouslysimplepodcasting.com) Wordpress plugin.
 
 == Installation ==
 
@@ -58,8 +58,8 @@ Then you will need to tick `Enable Podtrac Episode Measurement Service` and reco
 
 == Upgrade Notice ==
 
-= 0.1.3 =
-* Tweaked RSS refresh and migrated to GitHub
+= 0.1.4 =
+* Added Blubrry Stats tracking and can combine with Podtrac & Added Option to select HTTP or HTTPS for Podtrac.
 
 == Additional Info ==
 
