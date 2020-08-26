@@ -57,6 +57,8 @@
 		<exclude name="Generic.PHP.RequireStrictTypes.MissingDeclaration"/><!-- Excluding: Missing required strict_types declaration -->
 		<exclude name="Generic.PHP.ClosingPHPTag.NotFound"/><!-- Excluding: The PHP open tag does not have a corresponding PHP close tag -->
 		<exclude name="Generic.PHP.UpperCaseConstant.Found"/><!-- Excluding: TRUE, FALSE and NULL must be uppercase -->
+		<exclude name="Generic.Files.InlineHTML.Found"/><!-- Excluding: PHP files must only contain PHP code -->
+		<exclude name="Generic.Strings.UnnecessaryStringConcat.Found"/><!-- Excluding: String concat is not required here; use a single string instead -->
 	</rule>
 	<!-- PSR1 -->
 	<rule ref="PSR1">
@@ -104,6 +106,7 @@
 		<exclude name="PEAR.Functions.FunctionDeclaration.BraceOnSameLine"/><!-- Excluding:  Opening brace should be on a new line -->
 		<exclude name="PEAR.NamingConventions.ValidFunctionName.FunctionNameInvalid"/><!-- Excluding: Function name is invalid -->
 		<exclude name="PEAR.NamingConventions.ValidFunctionName.FunctionNoCapital"/><!-- Excluding: Function name is prefixed with a package name but does not begin with a capital letter -->
+		<exclude name="PEAR.Commenting.FunctionComment.MissingReturn"/><!-- Excluding: Missing @return tag in function comment -->
 	</rule>
 	<!-- Squiz -->
     <rule ref="Squiz">
@@ -181,6 +184,9 @@
 		<exclude name="Squiz.WhiteSpace.FunctionSpacing.After"/><!-- Excluding:  Expected 2 blank lines after function -->
 		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/><!-- Excluding: Parameter comment must end with a full stop -->
 		<exclude name="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/><!-- Excluding: Type hint missing -->
+		<exclude name="Squiz.Operators.ComparisonOperatorUsage.ImplicitTrue"/><!-- Excluding: Implicit true comparisons prohibited; use === TRUE instead -->
+		<exclude name="Squiz.Commenting.FunctionComment.MissingReturn"/><!-- Excluding: Missing @return tag in function comment -->
+		<exclude name="Squiz.Strings.ConcatenationSpacing.PaddingFound"/><!-- Excluding: Concat operator must not be surrounded by spaces -->
 	</rule>
 	<!-- Only Allow these Wordpress Rules -->
 	<!-- Yoda rule: When doing logical comparisons, always put the variable on the right side,

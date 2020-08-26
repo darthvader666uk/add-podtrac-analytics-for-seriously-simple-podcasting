@@ -2,9 +2,9 @@
 // phpcs:disable Squiz.Commenting.BlockComment.LineIndent, Squiz.Commenting.BlockComment.FirstLineIndent, Squiz.Commenting.FileComment.WrongStyle, PEAR.Commenting.FileComment.WrongStyle, Squiz.Commenting.FileComment.Missing, Squiz.Commenting.BlockComment.NoEmptyLineBefore, Squiz.Commenting.BlockComment.NoEmptyLineAfter
 /*
 Plugin Name: Add Podtrac Analytics for Seriously Simple Podcasting
-Description: This is to add Podtrac analytics to Seriously Simple Podcasting Wordpress Plugin.
+Description: This is to add Podtrac & Blubrry analytics to Seriously Simple Podcasting Wordpress Plugin.
 Author: snightingale
-Version: 0.1.4
+Version: 0.1.5
 Donate link: https://www.buymeacoffee.com/disruptthinking
 License: GPLv2 or later
 Text Domain: add-podtrac-analytics-for-seriously-simple-podcasting
@@ -23,10 +23,10 @@ function podtrac_analytics_add_new_settings(array $settings) {
 	$settings['podtrac_analytics'] = array(
 		'title'       => __('Podtrac & Blubrry Analytics', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
 		'description' => __('This is to add Podtrac & Blubrry analytics to Seriously Simple Podcasting Wordpress Plugin.', 'add-podtrac-analytics-for-seriously-simple-podcasting').
-		"<ul>".
-			__(' <li><b>Podtrac\'s</b> Measurement Service is free to most publishers. It provides third-party measurement data not available anywhere else. When using this, all enclosure URLs will be prefixed, and do not need to be updated by the user. If you dont have Podtrac Account yet, go to ', 'add-podtrac-analytics-for-seriously-simple-podcasting').'<a href="https://publisher.podtrac.com">Podtrac</a>'.__(' to sign up.', 'add-podtrac-analytics-for-seriously-simple-podcasting')."</li>".
-			__(' <li><b>Blubrry</b> provides Free Basic Podcast Statistics service for podcasters. If you dont have Blubrry Account yet, go to ', 'add-podtrac-analytics-for-seriously-simple-podcasting').'<a href="https://create.blubrry.com/resources/podcast-media-download-statistics/basic-statistics/">Blubrry</a>'.__(' and follow the instructions to sign up.', 'add-podtrac-analytics-for-seriously-simple-podcasting')."</li>".
-		"</ul>",
+		'<ul>'.
+			__(' <li><b>Podtrac\'s</b> Measurement Service is free to most publishers. It provides third-party measurement data not available anywhere else. When using this, all enclosure URLs will be prefixed, and do not need to be updated by the user. If you dont have Podtrac Account yet, go to ', 'add-podtrac-analytics-for-seriously-simple-podcasting').'<a href="https://publisher.podtrac.com">Podtrac</a>'.__(' to sign up.', 'add-podtrac-analytics-for-seriously-simple-podcasting').'</li>'.
+			__(' <li><b>Blubrry</b> provides Free Basic Podcast Statistics service for podcasters. If you dont have Blubrry Account yet, go to ', 'add-podtrac-analytics-for-seriously-simple-podcasting').'<a href="https://create.blubrry.com/resources/podcast-media-download-statistics/basic-statistics/">Blubrry</a>'.__(' and follow the instructions to sign up.', 'add-podtrac-analytics-for-seriously-simple-podcasting').'</li>'.
+		'</ul>',
 		'fields'      => array(
 			array(
 				'id'          => 'podtrac_analytics_episode_measurement_service',
@@ -37,12 +37,12 @@ function podtrac_analytics_add_new_settings(array $settings) {
 			),
 			array(
 				'id'          => 'podtrac_analytics_episode_measurement_service_radio',
-				'label'       => __( 'HTTP or HTTPS', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
-				'description' => __( 'Switch between HTTP or HTTPS for Podtrac analytics.', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
+				'label'       => __('HTTP or HTTPS', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
+				'description' => __('Switch between HTTP or HTTPS for Podtrac analytics.', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
 				'type'        => 'radio',
 				'options'     => array(
-					'http' => __( 'HTTP: http://dts.podtrac.com/redirect.mp3/', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
-					'https' => __( 'HTTPS: https://dts.podtrac.com/redirect.mp3/', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
+					'http'  => __('HTTP: http://dts.podtrac.com/redirect.mp3/', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
+					'https' => __('HTTPS: https://dts.podtrac.com/redirect.mp3/', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
 				),
 				'default'     => 'https',
 			),
@@ -52,6 +52,16 @@ function podtrac_analytics_add_new_settings(array $settings) {
 				'description' => __('This will add the tracking to the podcast media file URL. This can be combined with Podtrac stats. Note: This <b>WILL NOT WORK</b> if you dont have a Podtrac account. Both will need to be setup', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
 				'type'        => 'checkbox',
 				'default'     => '',
+			),
+			array(
+				'id'          => 'podtrac_blubrry_stats_episode_measurement_service_name',
+				'label'       => __('Blubrry Stats Service Name', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
+				'description' => __('Please Enter your Blurry Podcast Name. This Can be found under <b>getting_started</b>-><b>Your Media Redirect URL</b>.', 'seriously-simple-podcasting'),
+				'type'        => 'text',
+				'default'     => '',
+				'placeholder' => __('Enter Blubrry Stats Service Name', 'add-podtrac-analytics-for-seriously-simple-podcasting'),
+				'class'       => 'regular-text',
+				'callback'    => 'wp_strip_all_tags',
 			),
 			array(
 				'id'          => 'podtrac_analytics_refresh_rss_cache',
@@ -78,7 +88,7 @@ add_filter('ssp_settings_fields', 'podtrac_analytics_add_new_settings');
 function podtrac_analytics_download_url_filter($link, $episode_id, $file) {
 	// Get the select option for Enable Podtrac Episode Measurement Service
 	$podtrac_analytics_redirect = get_option('ss_podcasting_podtrac_analytics_episode_measurement_service', 'off');
-	$blubrry_stats_redirect = get_option('ss_podcasting_podtrac_blubrry_stats_episode_measurement_service', 'off');
+	$blubrry_stats_redirect     = get_option('ss_podcasting_podtrac_blubrry_stats_episode_measurement_service', 'off');
 
 	// Default for the normal URL
 	$redirect_link = esc_url_raw($link);
@@ -93,32 +103,62 @@ function podtrac_analytics_download_url_filter($link, $episode_id, $file) {
 
 		// Re-created the URl with additional tracking
 		$redirect_link = esc_url($podtrac_analytics_radio.'://dts.podtrac.com/redirect.mp3/'.$parsed_url['host'].$parsed_url['path']);
-	} 
+	}
 
 	// For Just Blubrry
 	if ('on' === $blubrry_stats_redirect) {
 		// Get the section from original URL
 		$parsed_url = parse_url($link);
 
-		// Re-created the URl with additional tracking
-		$redirect_link = esc_url('http://media.blubrry.com/thumbculture/'.$parsed_url['host'].$parsed_url['path']);
-	} 
+		// Get Blubrry Service Name
+		$blubrry_service_name = get_option('ss_podcasting_podtrac_blubrry_stats_episode_measurement_service_name', '');
+
+		// Check to make sure its not empty
+		if ($blubrry_service_name) {
+			// Re-created the URl with additional tracking
+			$redirect_link = esc_url('http://media.blubrry.com/'.$blubrry_service_name.'/'.$parsed_url['host'].$parsed_url['path']);
+		}
+	}
 
 
-	// For Both Podtrac & BluBrry	
-	if('on' === $podtrac_analytics_redirect && 'on' === $blubrry_stats_redirect) {
+	// For Both Podtrac & BluBrry
+	if ('on' === $podtrac_analytics_redirect && 'on' === $blubrry_stats_redirect) {
 		// Get the section from original URL
 		$parsed_url = parse_url($link);
 
-		// Re-created the URl with additional tracking
-		$redirect_link = esc_url('http://media.blubrry.com/thumbculture/dts.podtrac.com/redirect.mp3/'.$parsed_url['host'].$parsed_url['path']);
-	} 
+		// Get Blubrry Service Name
+		$blubrry_service_name = get_option('ss_podcasting_podtrac_blubrry_stats_episode_measurement_service_name', '');
+
+		// Check to make sure its not empty
+		if ($blubrry_service_name) {
+			// Re-created the URl with additional tracking
+			$redirect_link = esc_url('http://media.blubrry.com/'.$blubrry_service_name.'/dts.podtrac.com/redirect.mp3/'.$parsed_url['host'].$parsed_url['path']);
+		}
+	}
 
 	// Return Redirect
 	return $redirect_link;
 }
 
 add_filter('ssp_episode_download_link', 'podtrac_analytics_download_url_filter', 10, 3);
+
+/**
+ * Check to make sure Blubrry Name isnt blank otherwise show an error
+ */
+function podtrac_blubrry_check() {
+	// Check to see if Blubrry has been enabled
+	if ('on' === get_option('ss_podcasting_podtrac_blubrry_stats_episode_measurement_service', 'off')) {
+		// Check to make sure service name isnt empty
+		if (empty(get_option('ss_podcasting_podtrac_blubrry_stats_episode_measurement_service_name', ''))) {
+			?>
+			<div class="notice notice-error is-dismissible">
+				<p><?php _e('<b>Blubrry Error:</b> No Blubrry Service has been entered', 'add-podtrac-analytics-for-seriously-simple-podcasting'); ?></p>
+			</div>
+			<?php
+		}
+	}
+}
+add_action('admin_notices', 'podtrac_blubrry_check');
 
 /**
  * Refresh the RSS feed if the option is ticked.  Needed to add the tracking straight away

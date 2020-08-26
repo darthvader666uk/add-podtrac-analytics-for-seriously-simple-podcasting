@@ -1,3 +1,8 @@
+= 0.1.5 =
+* Added the ability to specific Blubrry Service name as there was a bug as it was default.
+* Added a error notice to inform users of a blank Blubrry service name if Blubrry box ticked
+* CI Fixes
+
 = 0.1.4 =
 * Added Blubrry Stats tracking and can combine with Podtrac.
 * Added Option to select HTTP or HTTPS for Podtrac.
