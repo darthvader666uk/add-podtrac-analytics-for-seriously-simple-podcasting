@@ -6,7 +6,7 @@ Tested up to: 5.5
 Stable tag: 0.1.5
 Requires PHP: 5.6
 Author URI: https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting
-Donate link: https://www.buymeacoffee.com/disruptthinking
+Donate link: https://www.buymeacoffee.com/darthvader666uk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
