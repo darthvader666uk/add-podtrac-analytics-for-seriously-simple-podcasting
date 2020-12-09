@@ -2,8 +2,8 @@
 Contributors: snightingale
 Tags: podcast, podtrac, Seriously Simple Podcasting, podtrac, blubrry, podcast stats
 Requires at least: 4.4
-Tested up to: 5.5
-Stable tag: 0.1.5
+Tested up to: 5.6
+Stable tag: 0.1.6
 Requires PHP: 5.6
 Author URI: https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting
 Donate link: https://www.buymeacoffee.com/darthvader666uk
@@ -40,6 +40,9 @@ Then you will need to tick `Enable Podtrac Episode Measurement Service` and reco
 
 == Changelog ==
 
+= 0.1.6 =
+* Tested and made sure it works with Wordpress 5.6
+
 = 0.1.5 =
 * Added the ability to specific Blubrry Service name as there was a bug as it was default.
 * Added a error notice to inform users of a blank Blubrry service name if Blubrry box ticked
@@ -63,8 +66,8 @@ Then you will need to tick `Enable Podtrac Episode Measurement Service` and reco
 
 == Upgrade Notice ==
 
-= 0.1.5 =
-* A bug in the BLubrry service as it was default. Now given you the option to specify the service IF the Blurbrry box is ticked.
+= 0.1.6 =
+* Tested and made sure it works with Wordpress 5.6
 
 == Additional Info ==
 
