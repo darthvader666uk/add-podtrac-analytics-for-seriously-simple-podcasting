@@ -3,13 +3,15 @@ var wpPot           = require('gulp-wp-pot');
 var plumber         = require('gulp-plumber');
 var clean           = require('gulp-clean');
 var runSequence     = require('gulp4-run-sequence');
+var zip             = require('gulp-zip');
 var colorize        = require('chalk');
 var sort 			= require('gulp-sort');
 var abort_on_error  = true;
 
 // set clean paths
 var cleanPaths = [
-	'dist/*'
+	'dist/*',
+	'add-podtrac-analytics-for-seriously-simple-podcasting.zip'
 ];
 
 /* ==Start Gulp Process=== */
@@ -21,10 +23,12 @@ gulp.copy = function(src,dest) {
 
 /*== Clean Dist and Zip ==*/
 gulp.task('clean', function(){
-	return gulp.src(cleanPaths)
+	return gulp.src(cleanPaths, { allowEmpty: true })
 	.pipe(plumber(reportError))
 	.pipe(clean({force:true}));
 });
+
+
 /* ==Translations=== */
 gulp.task('pot', function () {
 	return gulp.src('src/**/*.php')
@@ -43,18 +47,49 @@ gulp.task('move_src', function(){
 	.pipe(gulp.dest('dist'));
 });
 
+/*== Configuring Zip ==*/
+
+//for normal build
+gulp.task('copy_for_zip', function(){
+	return gulp.src('dist/**')
+	.pipe(plumber(reportError))
+	.pipe(gulp.dest('add-podtrac-analytics-for-seriously-simple-podcasting'));
+	
+});
+
+gulp.task('build_zip', function(){
+	return gulp.src('add-podtrac-analytics-for-seriously-simple-podcasting/**/*', { base : "." })
+	.pipe(plumber(reportError))
+	.pipe(zip('add-podtrac-analytics-for-seriously-simple-podcasting.zip'))
+	.pipe(gulp.dest('.'));
+});
+
+gulp.task('clean_zip', function() {
+	return gulp.src('add-podtrac-analytics-for-seriously-simple-podcasting', {read: false}).pipe(clean())
+	.pipe(plumber(reportError));
+});
+
 /*== Building the files ==*/
-gulp.task('default', function(callback){
+gulp.task('default', function(done){
     runSequence('clean',
 				['move_src'],
 				['pot'],
-                callback
+                done
         );
 });
 
-gulp.task('build', function(callback){
+gulp.task('build', function(done){
     runSequence('default',
-	callback
+                done
+        );
+});
+
+gulp.task('zip', function(done){
+    runSequence('default',
+                ['copy_for_zip'],
+                ['build_zip'],
+                ['clean_zip'],
+                done
         );
 });
 
