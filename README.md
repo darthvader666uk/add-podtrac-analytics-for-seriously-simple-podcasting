@@ -26,6 +26,6 @@ To use this plugin (once activated) Navigate to the `Seriously Simple Podcasting
 
 Then you will need to tick `Enable Podtrac Episode Measurement Service` and recommend ticking `Refresh RSS Cache` so the results are seen straight away.
 
-a href="https://nowpayments.io/donation/darthvader666uk" target="_blank">
+<a href="https://nowpayments.io/donation/darthvader666uk" target="_blank">
   <img src="https://nowpayments.io/images/embeds/donation-button-black.svg" alt="Crypto donation button by NOWPayments">
 </a>
