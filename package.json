@@ -4,7 +4,7 @@
   "description": "Podtrac with Seriously Simple Podcasting",
   "repository": "https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting",
   "devDependencies": {
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-wp-pot": "^1.0.1"
   },
   "dependencies": {
@@ -12,8 +12,8 @@
     "gulp-clean": "^0.4.0",
     "gulp-plumber": "^1.2.1",
     "gulp-sort": "^2.0.0",
-    "gulp-zip": "^5.0.1",
+    "gulp-zip": "^5.1.0",
     "npm-check-updates": "^4.0.1",
-    "run-sequence": "^2.2.1"
+    "gulp4-run-sequence": "^1.0.1"
   }
 }

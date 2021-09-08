@@ -85,7 +85,7 @@ add_filter('ssp_settings_fields', 'podtrac_analytics_add_new_settings');
  * @param  string  $file       The File of the podcast media
  * @return string
  */
-function podtrac_analytics_download_url_filter($link, $episode_id, $file) {
+function podtrac_analytics_download_url_filter($link, $episode_id, $file) {// phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable -- Unused function parameter $episode_id and $file
 	// Get the select option for Enable Podtrac Episode Measurement Service
 	$podtrac_analytics_redirect = get_option('ss_podcasting_podtrac_analytics_episode_measurement_service', 'off');
 	$blubrry_stats_redirect     = get_option('ss_podcasting_podtrac_blubrry_stats_episode_measurement_service', 'off');

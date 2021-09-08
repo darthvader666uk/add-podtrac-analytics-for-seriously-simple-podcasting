@@ -2,16 +2,14 @@ var gulp            = require('gulp');
 var wpPot           = require('gulp-wp-pot');
 var plumber         = require('gulp-plumber');
 var clean           = require('gulp-clean');
-var runSequence     = require('run-sequence');
-var zip             = require('gulp-zip');
+var runSequence     = require('gulp4-run-sequence');
 var colorize        = require('chalk');
 var sort 			= require('gulp-sort');
 var abort_on_error  = true;
 
 // set clean paths
 var cleanPaths = [
-	'dist/*',
-	'add-podtrac-analytics-for-seriously-simple-podcasting.zip'
+	'dist/*'
 ];
 
 /* ==Start Gulp Process=== */
@@ -45,49 +43,18 @@ gulp.task('move_src', function(){
 	.pipe(gulp.dest('dist'));
 });
 
-/*== Configuring Zip ==*/
-
-//for normal build
-gulp.task('copy_for_zip', function(){
-	return gulp.src('dist/**')
-	.pipe(plumber(reportError))
-	.pipe(gulp.dest('add-podtrac-analytics-for-seriously-simple-podcasting'));
-	
-});
-
-gulp.task('build_zip', function(){
-	return gulp.src('add-podtrac-analytics-for-seriously-simple-podcasting/**/*', { base : "." })
-	.pipe(plumber(reportError))
-	.pipe(zip('add-podtrac-analytics-for-seriously-simple-podcasting.zip'))
-	.pipe(gulp.dest('.'));
-});
-
-gulp.task('clean_zip', function() {
-	return gulp.src('add-podtrac-analytics-for-seriously-simple-podcasting', {read: false}).pipe(clean())
-	.pipe(plumber(reportError));
-});
-
 /*== Building the files ==*/
-gulp.task('default', function(done){
+gulp.task('default', function(callback){
     runSequence('clean',
 				['move_src'],
 				['pot'],
-                done
+                callback
         );
 });
 
-gulp.task('build', function(done){
+gulp.task('build', function(callback){
     runSequence('default',
-                done
-        );
-});
-
-gulp.task('zip', function(done){
-    runSequence('default',
-                ['copy_for_zip'],
-                ['build_zip'],
-                ['clean_zip'],
-                done
+	callback
         );
 });
 
