@@ -42,6 +42,7 @@ Then you will need to tick `Enable Podtrac Episode Measurement Service` and reco
 
 = 0.1.8 =
 * Tested and made sure it works with Wordpress 5.8
+* Updated GULP and CI
 
 = 0.1.7 =
 * Tested and made sure it works with Wordpress 5.7
