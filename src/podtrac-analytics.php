@@ -4,8 +4,8 @@
 Plugin Name: Add Podtrac Analytics for Seriously Simple Podcasting
 Description: This is to add Podtrac & Blubrry analytics to Seriously Simple Podcasting Wordpress Plugin.
 Author: snightingale
-Version: 0.1.7
-Donate link: https://www.buymeacoffee.com/darthvader666uk
+Version: 0.1.8
+Donate link: https://nowpayments.io/donation/darthvader666uk
 License: GPLv2 or later
 Text Domain: add-podtrac-analytics-for-seriously-simple-podcasting
 Domain Path: /languages
