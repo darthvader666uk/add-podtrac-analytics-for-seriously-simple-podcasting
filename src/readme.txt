@@ -2,8 +2,8 @@
 Contributors: snightingale
 Tags: podcast, podtrac, Seriously Simple Podcasting, podtrac, blubrry, podcast stats
 Requires at least: 4.4
-Tested up to: 5.6
-Stable tag: 0.1.6
+Tested up to: 5.7
+Stable tag: 0.1.7
 Requires PHP: 5.6
 Author URI: https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting
 Donate link: https://www.buymeacoffee.com/darthvader666uk
@@ -40,6 +40,9 @@ Then you will need to tick `Enable Podtrac Episode Measurement Service` and reco
 
 == Changelog ==
 
+= 0.1.7 =
+* Tested and made sure it works with Wordpress 5.7
+
 = 0.1.6 =
 * Tested and made sure it works with Wordpress 5.6
 
@@ -66,8 +69,8 @@ Then you will need to tick `Enable Podtrac Episode Measurement Service` and reco
 
 == Upgrade Notice ==
 
-= 0.1.6 =
-* Tested and made sure it works with Wordpress 5.6
+= 0.1.7 =
+* Tested and made sure it works with Wordpress 5.7
 
 == Additional Info ==
 
