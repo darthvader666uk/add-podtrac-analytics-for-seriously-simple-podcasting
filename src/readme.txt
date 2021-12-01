@@ -3,7 +3,7 @@ Contributors: snightingale
 Tags: podcast, podtrac, Seriously Simple Podcasting, podtrac, blubrry, podcast stats
 Requires at least: 4.4
 Tested up to: 5.8
-Stable tag: 0.1.8
+Stable tag: 0.1.9
 Requires PHP: 5.6
 Author URI: https://github.com/darthvader666uk/add-podtrac-analytics-for-seriously-simple-podcasting
 Donate link: https://nowpayments.io/donation/darthvader666uk
