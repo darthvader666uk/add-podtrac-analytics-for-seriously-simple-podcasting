@@ -40,6 +40,10 @@ Then you will need to tick `Enable Podtrac Episode Measurement Service` and reco
 
 == Changelog ==
 
+= 0.1.9 =
+* Added query ref to the end of the URL which preserves the settings set by SSP (Thanks @tb2020 & @legendany)
+* Added option for Blubrry HTTP or HTTPS tracking URL. Default: HTTPS (Thanks @tb2020)
+
 = 0.1.8 =
 * Tested and made sure it works with Wordpress 5.8
 * Updated GULP and CI
