@@ -1,3 +1,6 @@
+= 0.1.10 =
+* Test up to WP 5.9
+
 = 0.1.9 =
 * Added query ref to the end of the URL which preserves the settings set by SSP (Thanks @tb2020 & @legendany)
 * Added option for Blubrry HTTP or HTTPS tracking URL. Default: HTTPS (Thanks @tb2020)
